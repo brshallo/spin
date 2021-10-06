@@ -25,6 +25,7 @@ To use spin, you need a dataset for training and a tidymodels workflow
 library(tidyverse)
 library(tidymodels)
 library(spin)
+library(earth)
 
 set.seed(123)
 split <- palmerpenguins::penguins %>% 
