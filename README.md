@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-spin – prediction intervals simulated – is a toy package for building
+spin – simulating prediction intervals – is a toy package for building
 prediction intervals with out-of-sample data for
 [tidymodels](https://github.com/tidymodels) supported
 [workflows](https://github.com/tidymodels/workflows) objects. It

@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-spin -- prediction intervals simulated -- is a toy package for building prediction intervals with out-of-sample data for [tidymodels](https://github.com/tidymodels) supported [workflows](https://github.com/tidymodels/workflows) objects. It consists of two functions: `prep_interval()` for simulating model fits + sample uncertainty and `predict_interval()` for outputting prediction intervals on new observations. 
+spin -- simulating prediction intervals -- is a toy package for building prediction intervals with out-of-sample data for [tidymodels](https://github.com/tidymodels) supported [workflows](https://github.com/tidymodels/workflows) objects. It consists of two functions: `prep_interval()` for simulating model fits + sample uncertainty and `predict_interval()` for outputting prediction intervals on new observations. 
 
 To use spin, you need a dataset for training and a tidymodels workflow (with a preprocessing recipe and model specification):
 
