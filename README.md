@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pints
+# spin
 
 <!-- badges: start -->
 
@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-pints – prediction intervals simulated – is a toy package for building
+spin – prediction intervals simulated – is a toy package for building
 prediction intervals with out-of-sample data for
 [tidymodels](https://github.com/tidymodels) supported
 [workflows](https://github.com/tidymodels/workflows) objects. It
@@ -17,14 +17,14 @@ consists of two functions: `prep_interval()` for simulating model fits +
 sample uncertainty and `predict_interval()` for outputting prediction
 intervals on new observations.
 
-To use pints, you need a dataset for training and a tidymodels workflow
+To use spin, you need a dataset for training and a tidymodels workflow
 (with a preprocessing recipe and model specification):
 
 ``` r
 # Set-up
 library(tidyverse)
 library(tidymodels)
-library(pints)
+library(spin)
 
 set.seed(123)
 split <- palmerpenguins::penguins %>% 
@@ -96,7 +96,6 @@ bind_cols(
   geom_errorbar(aes(ymin = .pred_lower, ymax = .pred_upper, color = "prediction interval"))+
   geom_point(aes(y = actuals, color = "actuals"))+
   theme_bw()+
-  coord_cartesian(ylim = c(2000, 8000))+
   labs(title = "Simulated Prediction Intervals for body_mass_g",
        subtitle = "For Palmer's Penguins",
        y = "body_mass_g")
@@ -115,20 +114,20 @@ have all hyperparameters etc. specified[1].
 **More Documentation**
 
 *For a more detailed description and review of the current methodology
-used in pints, see [Simulating Prediction
+used in spin, see [Simulating Prediction
 Intervals](https://www.bryanshalloway.com/2021/04/05/simulating-prediction-intervals/).*
 
 # Notes, Limitations, Resources, Ideas
 
-pints produces reasonable, simple to create prediction interval
-(assuming iid) for any model type supported by the tidymodels ecosystem.
-Due to it taking in a *workflow*, pints takes an expansive view of
-uncertainty due to model estimation and include both model fit *as well
-as* preprocessing steps (which feels like a good idea in most cases).
-That said, pints is *very much* in toy / experimental form[2]:
+spin produces reasonable, simple to create prediction interval (assuming
+iid) for any model type supported by the tidymodels ecosystem. Due to it
+taking in a *workflow*, spin takes an expansive view of uncertainty due
+to model estimation and include both model fit *as well as*
+preprocessing steps (which feels like a good idea in most cases). That
+said, spin is *very much* in toy / experimental form[2]:
 
 -   A more detailed description of the (rough) methodology currently
-    used by pints can be found in the second of three blog posts I wrote
+    used by spin can be found in the second of three blog posts I wrote
     on building prediction intervals: [Simulating Prediction
     Intervals](https://www.bryanshalloway.com/2021/04/05/simulating-prediction-intervals/)
     where I also include references to related posts by Dan Saattrup
@@ -136,12 +135,12 @@ That said, pints is *very much* in toy / experimental form[2]:
     [Doubt](https://github.com/saattrupdan/doubt)). See
     [parsnip\#464](https://github.com/tidymodels/parsnip/issues/464) for
     other related links.
--   The methodology in pints assumes errors are roughly iid[3]. See
-    other post on [quantile regression
+-   The methodology in spin assumes errors are roughly iid[3]. See other
+    post on [quantile regression
     intervals](https://www.bryanshalloway.com/2021/04/21/quantile-regression-forests-for-prediction-intervals/)
     and linked to resources for other (in many circumstances) more
     flexible approaches.
--   I’d like to investigate blending a parsnip interface like pints onto
+-   I’d like to investigate blending a parsnip interface like spin onto
     a [conformal inference](https://github.com/ryantibs/conformal)
     approach
 -   I’d like to allow for more flexibility in specifying things like the
@@ -157,10 +156,10 @@ That said, pints is *very much* in toy / experimental form[2]:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("brshallo/pints")
+devtools::install_github("brshallo/spin")
 ```
 
-[1] Though pints may also be useful for evaluating prediction intervals
+[1] Though spin may also be useful for evaluating prediction intervals
 of different candidate models.
 
 [2] There are also no checks, tests, etc currently in place.

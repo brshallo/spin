@@ -1,4 +1,4 @@
-#' @description To learn more about pints see https://github.com/brshallo/pints
+#' @description To learn more about spin see https://github.com/brshallo/spin
 #' @keywords internal
 #' @import dplyr
 #' @importFrom stats predict quantile
