@@ -19,7 +19,7 @@ extract_extracts <- function(wf_extracts){
   wf_extracts %>%
     select(.extracts) %>%
     transmute(.extracts = map(.extracts, ".extracts") %>% map(1)) %>%
-    tidyr::unnest_wider(.extracts)
+    tidyr::unnest_wider(col = .extracts, strict = TRUE)
 }
 
 
